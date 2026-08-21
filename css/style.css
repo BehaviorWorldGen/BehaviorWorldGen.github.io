@@ -1011,6 +1011,427 @@
             }
         }
 
+        /* ===== Quantitative Results Section ===== */
+        .quantitative-results {
+            background-color: #f7f7f8;
+            background-image:
+                radial-gradient(880px circle at 12% 4%, rgba(219, 0, 82, 0.07), transparent 62%),
+                radial-gradient(760px circle at 92% 96%, rgba(0, 82, 219, 0.06), transparent 62%);
+            /* 若后续准备了专属背景图，把下面这行替换上面的 background-image 即可：
+               background-image: url("../img/background/quantitative-results-bg.jpg"); */
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            padding: 88px 0 104px;
+        }
+
+        .qr-container {
+            max-width: 1360px;
+        }
+
+        .qr-title {
+            color: #111111;
+            font-size: 32px;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        .qr-title::after {
+            content: "";
+            display: block;
+            width: 44px;
+            height: 3px;
+            margin: 14px auto 0;
+            background: var(--accent);
+        }
+
+        .qr-intro {
+            max-width: 880px;
+            margin: 24px auto 0;
+            color: #404040;
+            font-size: 15px;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        .qr-intro strong {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .qr-legend {
+            display: block;
+            margin-top: 8px;
+            color: var(--text-tertiary);
+            font-size: 13px;
+        }
+
+        .qr-legend .qr-best {
+            color: var(--text-secondary);
+        }
+
+        .qr-legend .qr-delta {
+            margin-left: 0;
+        }
+
+        .qr-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 26px;
+            margin-top: 44px;
+            align-items: start;
+        }
+
+        .qr-column {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            min-width: 0;
+        }
+
+        .qr-column-head {
+            text-align: center;
+        }
+
+        .qr-column-tag {
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--accent);
+            border-radius: 50px;
+            box-shadow: 0 6px 16px rgba(219, 0, 82, 0.18);
+            color: #ffffff;
+            font: 600 14px/1.3 var(--font-en);
+            letter-spacing: 0.03em;
+        }
+
+        .qr-column-head p {
+            margin-top: 10px;
+            color: var(--text-secondary);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .qr-card {
+            display: flex;
+            flex-direction: column;
+            padding: 22px 22px 18px;
+            background: rgba(255, 255, 255, 0.78);
+            border: 1px solid rgba(255, 255, 255, 0.92);
+            border-top: 3px solid var(--accent);
+            border-radius: 8px;
+            box-shadow: var(--shadow-lg);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            min-width: 0;
+        }
+
+        .qr-card-head {
+            margin-bottom: 16px;
+        }
+
+        .qr-card-index {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--accent);
+            font: 600 11px/1.2 var(--font-en);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .qr-card-head h3 {
+            color: var(--text-primary);
+            font-size: 21px;
+            font-weight: 600;
+            line-height: 1.25;
+        }
+
+        .qr-card-head p {
+            margin-top: 8px;
+            color: var(--text-secondary);
+            font-size: 13px;
+            line-height: 1.65;
+        }
+
+        .qr-inline-range {
+            font-family: var(--font-en);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .qr-table-scroll {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .qr-table {
+            /* ↓↓↓ 就是调这个：第一列（Method / Range）的固定宽度，
+               剩下的宽度由 6 个数值列平均分。
+               调大 = 数值区变窄并整体右移；调小 = 数值区变宽，
+               但小于 158px 时 "Hydra-MDP-V8192-W-EP" 会折成两行。 */
+            --qr-method-col: 168px;
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: collapse;
+            font-family: var(--font-en);
+            font-size: 12.5px;
+            font-variant-numeric: tabular-nums;
+            color: var(--text-primary);
+        }
+
+        /* 低分场景表第一列是 Range，内容短得多，想让它更紧凑就单独调小这个值；
+           保持和上面一致（168px）则四张表的列网格完全对齐。 */
+        .qr-table-lowscore {
+            --qr-method-col: 168px;
+        }
+
+        .qr-table thead th:first-child {
+            width: var(--qr-method-col);
+        }
+
+        .qr-table thead th {
+            padding: 0 4px 7px;
+            border-top: 2px solid rgba(17, 17, 17, 0.82);
+            border-bottom: 1px solid rgba(17, 17, 17, 0.5);
+            color: var(--text-secondary);
+            font-size: 11.5px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .qr-table thead th:first-child {
+            padding-top: 0;
+        }
+
+        .qr-table thead th abbr {
+            text-decoration: none;
+            border-bottom: none;
+            cursor: help;
+        }
+
+        .qr-table thead th.qr-col-method,
+        .qr-table thead th.qr-col-range {
+            text-align: left;
+            padding-left: 2px;
+        }
+
+        .qr-table tbody th {
+            padding: 6px 10px 6px 2px;
+            color: var(--text-primary);
+            font-size: 12.5px;
+            font-weight: 500;
+            text-align: left;
+            line-height: 1.35;
+        }
+
+        .qr-table tbody td {
+            padding: 6px 4px;
+            text-align: center;
+            white-space: nowrap;
+            color: var(--text-secondary);
+        }
+
+        .qr-table tbody tr + tr th,
+        .qr-table tbody tr + tr td {
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .qr-table tbody tr.qr-rule-after th,
+        .qr-table tbody tr.qr-rule-after td {
+            border-bottom: 1px solid rgba(17, 17, 17, 0.32);
+        }
+
+        .qr-table tbody tr:last-child th,
+        .qr-table tbody tr:last-child td {
+            border-bottom: 2px solid rgba(17, 17, 17, 0.82);
+        }
+
+        .qr-venue {
+            display: inline-block;
+            margin-left: 5px;
+            color: var(--text-tertiary);
+            font-size: 10.5px;
+            font-weight: 400;
+            white-space: nowrap;
+        }
+
+        .qr-sub {
+            font-size: 10.5px;
+            vertical-align: -0.15em;
+            letter-spacing: 0.01em;
+        }
+
+        .qr-best {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .qr-second {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 2.5px;
+            text-decoration-color: rgba(17, 17, 17, 0.42);
+        }
+
+        .qr-row-baseline th,
+        .qr-row-baseline td {
+            border-top: 1px solid rgba(17, 17, 17, 0.32) !important;
+        }
+
+        .qr-row-ours {
+            background: var(--accent-subtle);
+        }
+
+        .qr-row-ours th,
+        .qr-row-ours td {
+            border-top: 1px solid rgba(17, 17, 17, 0.32) !important;
+        }
+
+        .qr-row-ours th {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .qr-row-ours .qr-best,
+        .qr-row-ours td {
+            color: var(--text-primary);
+        }
+
+        .qr-delta {
+            margin-left: 4px;
+            color: var(--accent);
+            font-size: 10.5px;
+            font-weight: 600;
+            letter-spacing: 0;
+        }
+
+        .qr-delta-block {
+            display: block;
+            margin-left: 0;
+            margin-top: 1px;
+            line-height: 1.2;
+        }
+
+        .qr-delta-flat {
+            color: var(--text-tertiary);
+        }
+
+        .qr-group-row th {
+            padding: 9px 2px 6px;
+            border-top: 1px solid rgba(17, 17, 17, 0.32);
+            color: var(--text-primary);
+            font-size: 12.5px;
+            font-weight: 700;
+            text-align: left;
+        }
+
+        .qr-group-row-ours th {
+            color: var(--accent);
+        }
+
+        .qr-table-lowscore tbody th {
+            white-space: nowrap;
+        }
+
+        .qr-note {
+            margin-top: 12px;
+            color: var(--text-tertiary);
+            font-size: 11.5px;
+            line-height: 1.6;
+        }
+
+        .qr-note sup {
+            color: var(--accent);
+        }
+
+        /* 两列布局下窗口偏窄时数值列会挤到 ~51px，行内的 +0.2 增量会溢出，
+           这里把它挪到数字下面一行（和低分场景表一样的处理） */
+        @media (max-width: 1240px) and (min-width: 1121px) {
+            .qr-delta {
+                display: block;
+                margin-left: 0;
+                margin-top: 1px;
+                line-height: 1.2;
+            }
+        }
+
+        @media (max-width: 1120px) {
+            .qr-grid {
+                grid-template-columns: 1fr;
+                gap: 34px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .quantitative-results {
+                padding: 72px 0 80px;
+            }
+
+            .qr-title {
+                font-size: 28px;
+            }
+
+            .qr-intro {
+                font-size: 14px;
+                text-align: left;
+            }
+
+            .qr-card {
+                padding: 16px 14px 14px;
+            }
+
+            .qr-card-head h3 {
+                font-size: 19px;
+            }
+
+            .qr-table {
+                /* 窄屏改回按内容自适应，避免固定列宽把方法名挤成多行 */
+                table-layout: auto;
+                font-size: 11.5px;
+            }
+
+            .qr-table tbody th {
+                font-size: 11.5px;
+                padding-right: 6px;
+            }
+
+            .qr-table thead th {
+                font-size: 10.5px;
+                padding-left: 2px;
+                padding-right: 2px;
+            }
+
+            .qr-table tbody td {
+                padding: 5px 2px;
+            }
+
+            .qr-venue {
+                display: block;
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 430px) {
+            .qr-table,
+            .qr-table tbody th {
+                font-size: 10.5px;
+            }
+
+            .qr-table tbody th {
+                padding-right: 4px;
+            }
+
+            .qr-table tbody td {
+                padding: 5px 1px;
+            }
+
+            .qr-delta {
+                font-size: 9.5px;
+            }
+        }
+
+
         /* ===== Architecture Section ===== */
         .architecture {
             background: var(--bg-secondary);
