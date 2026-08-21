@@ -1,0 +1,116 @@
+<!-- 30-Second AR Rollout Results -->
+<section class="rollout-results" id="rollout-results">
+    <div class="container rollout-container">
+        <div class="section-header world-simulators-header reveal">
+            <span class="section-label rollout-section-label">World Simulators</span>
+        </div>
+
+        <div class="world-simulator-tabs reveal" role="tablist" aria-label="World simulator construction method">
+            <button class="world-simulator-tab is-active" id="world-model-tab" type="button" role="tab" aria-selected="true" aria-controls="world-model-panel" data-panel="world-model-panel">Action Condition World Model</button>
+            <button class="world-simulator-tab" id="gaussian-splatting-tab" type="button" role="tab" aria-selected="false" aria-controls="gaussian-splatting-panel" data-panel="gaussian-splatting-panel">3D Gaussian Splatting</button>
+        </div>
+
+        <div class="world-simulator-panel" id="world-model-panel" role="tabpanel" aria-labelledby="world-model-tab">
+        <div class="section-header world-framework-header reveal">
+            <h2>Action Condition World Model</h2>
+        </div>
+
+        <div class="world-framework-grid reveal">
+            <a class="world-framework-item" href="img/world-simulators/action-conditioned-world-model/AWM0.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open AWM0 framework PDF">
+                <img src="img/world-simulators/action-conditioned-world-model/AWM0.jpg" alt="AWM0 framework diagram">
+            </a>
+            <a class="world-framework-item" href="img/world-simulators/action-conditioned-world-model/AWM1.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open AWM1 framework PDF">
+                <img src="img/world-simulators/action-conditioned-world-model/AWM1.jpg" alt="AWM1 framework diagram">
+            </a>
+        </div>
+
+        <div class="section-header rollout-results-header reveal">
+            <h2>30-Second AR Rollout Results</h2>
+        </div>
+
+        <div class="rollout-showcase reveal">
+            <div class="rollout-tabs" role="tablist" aria-label="Choose a rollout video">
+                <button class="rollout-tab is-active" type="button" role="tab" aria-selected="true">Video 1</button>
+                <button class="rollout-tab" type="button" role="tab" aria-selected="false">Video 2</button>
+                <button class="rollout-tab" type="button" role="tab" aria-selected="false">Video 3</button>
+                <button class="rollout-tab" type="button" role="tab" aria-selected="false">Video 4</button>
+                <button class="rollout-tab" type="button" role="tab" aria-selected="false">Video 5</button>
+            </div>
+
+            <div class="rollout-player"></div>
+        </div>
+
+        <div class="section-header lidar-generation-header reveal">
+            <h2>LiDAR Generation Results</h2>
+        </div>
+
+        <div class="lidar-generation-showcase reveal">
+            <div class="lidar-generation-grid">
+                <img src="img/world-simulators/action-conditioned-world-model/3v_lidar0.jpg" alt="LiDAR generation result 1" loading="lazy">
+                <img src="img/world-simulators/action-conditioned-world-model/3v_lidar1.jpg" alt="LiDAR generation result 2" loading="lazy">
+            </div>
+        </div>
+
+        <div class="section-header style-transfer-header reveal">
+            <h2>Weather Style Transfer Results</h2>
+        </div>
+
+        <div class="style-transfer-showcase reveal">
+            <div class="style-transfer-player">
+                <video autoplay loop muted controls playsinline preload="metadata" controlslist="nodownload" aria-label="Weather Style Transfer Results">
+                    <source src="video/world-simulators/style-transfer/weather-change.mp4" type="video/mp4">
+                    你的浏览器不支持 HTML5 视频播放，请升级浏览器！
+                </video>
+            </div>
+        </div>
+
+        <div class="style-transfer-showcase fog-transfer-showcase reveal">
+            <div class="fog-transfer-player">
+                <video autoplay loop muted controls playsinline preload="metadata" controlslist="nodownload" aria-label="Original and foggy seven-view comparison">
+                    <source src="video/world-simulators/style-transfer/fog-comparison-7v-compressed.mp4" type="video/mp4">
+                    你的浏览器不支持 HTML5 视频播放，请升级浏览器！
+                </video>
+            </div>
+        </div>
+
+        <div class="section-header animal-rollout-header reveal">
+            <h2>Animal Synthesis Results</h2>
+        </div>
+
+        <div class="animal-rollout-showcase reveal">
+            <div class="animal-rollout-layout">
+                <div class="animal-row-labels" aria-label="Animal rows">
+                    <span>Bear</span>
+                    <span>Dog</span>
+                    <span>Goose</span>
+                    <span>Sheep</span>
+                </div>
+                <div class="animal-rollout-player">
+                    <video autoplay loop muted controls playsinline preload="metadata" controlslist="nodownload" aria-label="Bear, dog, goose and sheep rollout results">
+                        <source src="video/world-simulators/animal-synthesis-results/animal-rollouts-comparison-compressed.mp4" type="video/mp4">
+                        你的浏览器不支持 HTML5 视频播放，请升级浏览器！
+                    </video>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="world-simulator-panel" id="gaussian-splatting-panel" role="tabpanel" aria-labelledby="gaussian-splatting-tab" hidden>
+            <div class="gaussian-splatting-placeholder">
+                <h2>3D Gaussian Splatting</h2>
+                <div class="gaussian-splatting-showcase">
+                    <div class="gaussian-splatting-tabs" role="tablist" aria-label="Choose a 3D Gaussian Splatting case">
+                        <button class="gaussian-splatting-tab is-active" type="button" role="tab" aria-selected="true" data-video-src="video/world-simulators/3d-gaussian-splatting/6855b550c2df4f507148f728_compressed.mp4">Case 1</button>
+                        <button class="gaussian-splatting-tab" type="button" role="tab" aria-selected="false" data-video-src="video/world-simulators/3d-gaussian-splatting/694e3ce93d7c0acaa7ef0a56_compressed.mp4">Case 2</button>
+                    </div>
+                    <div class="gaussian-splatting-player">
+                        <video controls muted playsinline preload="metadata" controlslist="nodownload" aria-label="3D Gaussian Splatting case video">
+                            <source src="video/world-simulators/3d-gaussian-splatting/6855b550c2df4f507148f728_compressed.mp4" type="video/mp4">
+                            你的浏览器不支持 HTML5 视频播放，请升级浏览器！
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
