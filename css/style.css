@@ -150,17 +150,6 @@
             background-size: cover;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, #db0052 0 5px, transparent 5px);
-            pointer-events: none;
-        }
-
         .hero-content {
             position: relative;
             z-index: 1;
@@ -631,7 +620,7 @@
 
         .gaussian-splatting-tabs {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: repeat(4, minmax(0, 1fr));
             gap: 10px;
             margin-bottom: 18px;
         }
@@ -751,9 +740,13 @@
 
         .rollout-tabs {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 10px;
             margin-bottom: 18px;
+        }
+
+        .ar-rollout-tabs {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
         }
 
         .rollout-tab {
@@ -787,7 +780,7 @@
 
         .rollout-player {
             overflow: hidden;
-            aspect-ratio: 16 / 9;
+            aspect-ratio: 20 / 3;
             background: #000000;
             border-radius: 5px;
         }
@@ -797,6 +790,39 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
+        }
+
+        .ar-rollout-player {
+            aspect-ratio: 16 / 9;
+        }
+
+        .ar-rollout-player img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #000000;
+        }
+
+        .scene-extrapolation-list {
+            display: grid;
+            gap: 18px;
+        }
+
+        .scene-extrapolation-item {
+            padding: 18px;
+            background: rgba(255, 255, 255, 0.76);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: var(--shadow-lg);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+
+        .scene-extrapolation-item figcaption {
+            margin-bottom: 12px;
+            color: var(--text-primary);
+            font: 600 14px/1.2 var(--font-en);
         }
 
         .style-transfer-header,
@@ -885,10 +911,12 @@
             gap: 14px;
         }
 
-        .lidar-generation-grid img {
+        .lidar-generation-grid video {
             display: block;
             width: 100%;
-            height: auto;
+            aspect-ratio: 28 / 9;
+            object-fit: contain;
+            background: #000000;
             border-radius: 5px;
         }
 
@@ -903,6 +931,12 @@
 
             .gaussian-splatting-showcase {
                 padding: 10px;
+            }
+
+            .gaussian-splatting-tabs {
+                grid-template-columns: repeat(4, minmax(74px, 1fr));
+                overflow-x: auto;
+                padding-bottom: 4px;
             }
 
             .style-transfer-showcase,
@@ -940,9 +974,17 @@
             }
 
             .rollout-tabs {
-                grid-template-columns: repeat(5, minmax(74px, 1fr));
+                grid-template-columns: repeat(3, minmax(74px, 1fr));
                 overflow-x: auto;
                 padding-bottom: 4px;
+            }
+
+            .ar-rollout-tabs {
+                grid-template-columns: repeat(4, minmax(74px, 1fr));
+            }
+
+            .scene-extrapolation-item {
+                padding: 10px;
             }
         }
 
@@ -972,8 +1014,29 @@
             background: var(--accent);
         }
 
+        .behavior-flow-group {
+            margin-top: 40px;
+        }
+
+        .behavior-flow-group h3 {
+            margin-bottom: 18px;
+            color: var(--text-primary);
+            font-size: 22px;
+            font-weight: 500;
+        }
+
+        .behavior-flow-description {
+            margin: -8px 0 18px;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .behavior-flow-video-list {
+            display: grid;
+            gap: 18px;
+        }
+
         .behavior-flow-video-card {
-            margin-top: 36px;
             padding: 18px;
             background: rgba(255, 255, 255, 0.78);
             border: 1px solid rgba(255, 255, 255, 0.92);
@@ -995,6 +1058,18 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
+        }
+
+        .behavior-flow-variant {
+            margin-top: 14px;
+            color: var(--text-secondary);
+            font-size: 13px;
+            line-height: 1.55;
+        }
+
+        .behavior-flow-variant strong {
+            color: var(--text-primary);
+            font-weight: 600;
         }
 
         @media (max-width: 768px) {

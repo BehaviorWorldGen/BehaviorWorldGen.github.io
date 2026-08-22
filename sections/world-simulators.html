@@ -25,19 +25,22 @@
         </div>
 
         <div class="section-header rollout-results-header reveal">
-            <h2>30-Second AR Rollout Results</h2>
+            <h2>Long-Horizon Autoregressive Video Generation</h2>
         </div>
 
-        <div class="rollout-showcase reveal">
-            <div class="rollout-tabs" role="tablist" aria-label="Choose a rollout video">
-                <button class="rollout-tab is-active" type="button" role="tab" aria-selected="true">Video 1</button>
-                <button class="rollout-tab" type="button" role="tab" aria-selected="false">Video 2</button>
-                <button class="rollout-tab" type="button" role="tab" aria-selected="false">Video 3</button>
-                <button class="rollout-tab" type="button" role="tab" aria-selected="false">Video 4</button>
-                <button class="rollout-tab" type="button" role="tab" aria-selected="false">Video 5</button>
+        <div class="rollout-showcase ar-rollout-showcase reveal">
+            <div class="rollout-tabs ar-rollout-tabs" role="tablist" aria-label="Choose a long-horizon autoregressive video scene">
+                <button class="rollout-tab is-active" type="button" role="tab" aria-selected="true" data-video-src="video/world-simulators/ar-rollout/7v_ratio065_frosted_compressed.mp4">Scene 1</button>
+                <button class="rollout-tab" type="button" role="tab" aria-selected="false" data-video-src="video/world-simulators/ar-rollout/7v_ratio065_frosted_compressed.mp4">Scene 2</button>
+                <button class="rollout-tab" type="button" role="tab" aria-selected="false" data-video-src="video/world-simulators/ar-rollout/7v_ratio065_frosted_compressed.mp4">Scene 3</button>
+                <button class="rollout-tab" type="button" role="tab" aria-selected="false" data-video-src="video/world-simulators/ar-rollout/7v_ratio065_frosted_compressed.mp4">Scene 4</button>
             </div>
-
-            <div class="rollout-player"></div>
+            <div class="rollout-player ar-rollout-player">
+                <video autoplay loop muted controls playsinline preload="metadata" controlslist="nodownload" aria-label="Long-horizon autoregressive video generation">
+                    <source src="video/world-simulators/ar-rollout/7v_ratio065_frosted_compressed.mp4" type="video/mp4">
+                    你的浏览器不支持 HTML5 视频播放，请升级浏览器！
+                </video>
+            </div>
         </div>
 
         <div class="section-header lidar-generation-header reveal">
@@ -46,8 +49,14 @@
 
         <div class="lidar-generation-showcase reveal">
             <div class="lidar-generation-grid">
-                <img src="img/world-simulators/action-conditioned-world-model/3v_lidar0.jpg" alt="LiDAR generation result 1" loading="lazy">
-                <img src="img/world-simulators/action-conditioned-world-model/3v_lidar1.jpg" alt="LiDAR generation result 2" loading="lazy">
+                <video controls muted playsinline preload="metadata" controlslist="nodownload" aria-label="LiDAR generation result 1">
+                    <source src="video/world-simulators/lidar-generation-results/飞书20260821-140741_9s_compressed.mp4" type="video/mp4">
+                    你的浏览器不支持 HTML5 视频播放，请升级浏览器！
+                </video>
+                <video controls muted playsinline preload="metadata" controlslist="nodownload" aria-label="LiDAR generation result 2">
+                    <source src="video/world-simulators/lidar-generation-results/飞书20260821-140745_9s_compressed.mp4" type="video/mp4">
+                    你的浏览器不支持 HTML5 视频播放，请升级浏览器！
+                </video>
             </div>
         </div>
 
@@ -99,16 +108,52 @@
             <div class="gaussian-splatting-placeholder">
                 <h2>3D Gaussian Splatting</h2>
                 <div class="gaussian-splatting-showcase">
-                    <div class="gaussian-splatting-tabs" role="tablist" aria-label="Choose a 3D Gaussian Splatting case">
-                        <button class="gaussian-splatting-tab is-active" type="button" role="tab" aria-selected="true" data-video-src="video/world-simulators/3d-gaussian-splatting/6855b550c2df4f507148f728_compressed.mp4">Case 1</button>
-                        <button class="gaussian-splatting-tab" type="button" role="tab" aria-selected="false" data-video-src="video/world-simulators/3d-gaussian-splatting/694e3ce93d7c0acaa7ef0a56_compressed.mp4">Case 2</button>
+                    <div class="gaussian-splatting-tabs" role="tablist" aria-label="Choose a 3D Gaussian Splatting scene">
+                        <button class="gaussian-splatting-tab is-active" type="button" role="tab" aria-selected="true" data-video-src="video/world-simulators/3d-gaussian-splatting/685692ca60063415e66c5530_compressed.mp4">Scene 1</button>
+                        <button class="gaussian-splatting-tab" type="button" role="tab" aria-selected="false" data-video-src="video/world-simulators/3d-gaussian-splatting/694e56f0d6e0af88c4a8897a_compressed.mp4">Scene 2</button>
+                        <button class="gaussian-splatting-tab" type="button" role="tab" aria-selected="false" data-video-src="video/world-simulators/3d-gaussian-splatting/694e3ce93d7c0acaa7ef0a56_compressed.mp4">Scene 3</button>
+                        <button class="gaussian-splatting-tab" type="button" role="tab" aria-selected="false" data-video-src="video/world-simulators/3d-gaussian-splatting/694e4ac9b620c813ef400fb1_compressed.mp4">Scene 4</button>
                     </div>
                     <div class="gaussian-splatting-player">
-                        <video controls muted playsinline preload="metadata" controlslist="nodownload" aria-label="3D Gaussian Splatting case video">
-                            <source src="video/world-simulators/3d-gaussian-splatting/6855b550c2df4f507148f728_compressed.mp4" type="video/mp4">
+                        <video controls muted playsinline preload="metadata" controlslist="nodownload" aria-label="3D Gaussian Splatting scene video">
+                            <source src="video/world-simulators/3d-gaussian-splatting/685692ca60063415e66c5530_compressed.mp4" type="video/mp4">
                             你的浏览器不支持 HTML5 视频播放，请升级浏览器！
                         </video>
                     </div>
+                </div>
+
+                <div class="section-header rollout-results-header reveal">
+                    <h2>Scene Extrapolation Results</h2>
+                </div>
+
+                <div class="scene-extrapolation-list reveal">
+                    <figure class="scene-extrapolation-item">
+                        <figcaption>Scene 1</figcaption>
+                        <div class="rollout-player">
+                            <video controls muted playsinline preload="metadata" controlslist="nodownload" aria-label="Scene extrapolation result 1">
+                                <source src="video/world-simulators/scene-extrapolation/z03_686dc9f490a0cf0cf2df1ce2_3e8c2196_full_compressed.mp4" type="video/mp4">
+                                你的浏览器不支持 HTML5 视频播放，请升级浏览器！
+                            </video>
+                        </div>
+                    </figure>
+                    <figure class="scene-extrapolation-item">
+                        <figcaption>Scene 2</figcaption>
+                        <div class="rollout-player">
+                            <video controls muted playsinline preload="metadata" controlslist="nodownload" aria-label="Scene extrapolation result 2">
+                                <source src="video/world-simulators/scene-extrapolation/z03_686ea985e8a2a1a730677be5_da65d327_full_compressed.mp4" type="video/mp4">
+                                你的浏览器不支持 HTML5 视频播放，请升级浏览器！
+                            </video>
+                        </div>
+                    </figure>
+                    <figure class="scene-extrapolation-item">
+                        <figcaption>Scene 3</figcaption>
+                        <div class="rollout-player">
+                            <video controls muted playsinline preload="metadata" controlslist="nodownload" aria-label="Scene extrapolation result 3">
+                                <source src="video/world-simulators/scene-extrapolation/z04_68663054f20e2317ec41bc40_4eba8394_full_compressed.mp4" type="video/mp4">
+                                你的浏览器不支持 HTML5 视频播放，请升级浏览器！
+                            </video>
+                        </div>
+                    </figure>
                 </div>
             </div>
         </div>
