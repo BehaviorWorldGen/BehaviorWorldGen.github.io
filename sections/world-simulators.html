@@ -1,0 +1,220 @@
+<!-- 30-Second AR Rollout Results -->
+<section class="rollout-results" id="rollout-results">
+    <div class="container rollout-container">
+        <div class="section-header world-simulators-header reveal">
+            <span class="section-label rollout-section-label">World Simulators</span>
+        </div>
+
+        <div class="world-simulator-tabs reveal" role="tablist" aria-label="World simulator construction method">
+            <button class="world-simulator-tab is-active" id="world-model-tab" type="button" role="tab" aria-selected="true" aria-controls="world-model-panel" data-panel="world-model-panel">Action Condition World Model</button>
+            <button class="world-simulator-tab" id="gaussian-splatting-tab" type="button" role="tab" aria-selected="false" aria-controls="gaussian-splatting-panel" data-panel="gaussian-splatting-panel">3D Gaussian Splatting</button>
+        </div>
+
+        <div class="world-simulator-panel" id="world-model-panel" role="tabpanel" aria-labelledby="world-model-tab">
+        <div class="section-header world-framework-header reveal">
+            <h2>Action Condition World Model</h2>
+        </div>
+
+        <div class="world-framework-grid reveal">
+            <a class="world-framework-item" href="img/world-simulators/action-conditioned-world-model/AWM0.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open AWM0 framework PDF">
+                <img src="img/world-simulators/action-conditioned-world-model/AWM0.jpg" alt="AWM0 framework diagram">
+            </a>
+            <a class="world-framework-item" href="img/world-simulators/action-conditioned-world-model/AWM1.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open AWM1 framework PDF">
+                <img src="img/world-simulators/action-conditioned-world-model/AWM1.jpg" alt="AWM1 framework diagram">
+            </a>
+        </div>
+
+        <div class="section-header rollout-results-header reveal">
+            <h2>Long-Horizon Autoregressive Video Generation</h2>
+        </div>
+
+        <div class="rollout-showcase ar-rollout-showcase long-horizon-showcase reveal">
+            <div class="rollout-tabs ar-rollout-tabs long-horizon-tabs" role="tablist" aria-label="Choose a long-horizon autoregressive video scene">
+                <button class="rollout-tab is-active" type="button" role="tab" aria-selected="true" data-video-src="video/world-simulators/ar-rollout/z04_6889f44da47add688ee351c4_254b4b76_dash_h264_fifth.mp4">Scene 1</button>
+                <button class="rollout-tab" type="button" role="tab" aria-selected="false" data-video-src="video/world-simulators/ar-rollout/z09_68a98acede11c9ba6b430fd6_88145407_dash_h264_fifth.mp4">Scene 2</button>
+                <button class="rollout-tab" type="button" role="tab" aria-selected="false" data-video-src="video/world-simulators/ar-rollout/z16_68906a2420327c46e63fdd42_4228ab32_dash_h264_fifth.mp4">Scene 3</button>
+                <button class="rollout-tab" type="button" role="tab" aria-selected="false" data-video-src="video/world-simulators/ar-rollout/z23_68556047c8f35f7a351dd985_9a336730_dash_h264_fifth.mp4">Scene 4</button>
+                <button class="rollout-tab" type="button" role="tab" aria-selected="false" data-video-src="video/world-simulators/ar-rollout/z26_686ae095fff19a163dea52d6_0bd08ddd_dash_h264_fifth.mp4">Scene 5</button>
+            </div>
+            <div class="rollout-player ar-rollout-player">
+                <video loop muted controls playsinline preload="none" controlslist="nodownload" aria-label="Long-horizon autoregressive video generation">
+                    <source src="video/world-simulators/ar-rollout/z04_6889f44da47add688ee351c4_254b4b76_dash_h264_fifth.mp4" type="video/mp4">
+                    你的浏览器不支持 HTML5 视频播放，请升级浏览器！
+                </video>
+            </div>
+        </div>
+
+        <div class="section-header rollout-results-header reveal">
+            <h2>Trajectory Editing</h2>
+        </div>
+
+        <div class="rollout-showcase ar-rollout-showcase trajectory-editing-showcase reveal">
+            <div class="rollout-tabs ar-rollout-tabs" role="tablist" aria-label="Choose a trajectory editing case">
+                <button class="rollout-tab is-active" type="button" role="tab" aria-selected="true" data-video-src="video/world-simulators/traj-edit/straight_to_turn_left_compressed.mp4" data-original-trajectory="Straight" data-edited-trajectory="Turn Left">Scene 1</button>
+                <button class="rollout-tab" type="button" role="tab" aria-selected="false" data-video-src="video/world-simulators/traj-edit/turn_left_to_straight_compressed.mp4" data-original-trajectory="Turn Left" data-edited-trajectory="Straight">Scene 2</button>
+                <button class="rollout-tab" type="button" role="tab" aria-selected="false" data-video-src="video/world-simulators/traj-edit/change_lane_compressed.mp4" data-original-trajectory="Straight" data-edited-trajectory="Change Lane Right">Scene 3</button>
+                <button class="rollout-tab" type="button" role="tab" aria-selected="false" data-video-src="video/world-simulators/traj-edit/overtake_compressed.mp4" data-original-trajectory="Straight" data-edited-trajectory="Accelerate and Overtake">Scene 4</button>
+            </div>
+            <div class="trajectory-comparison-labels" aria-live="polite">
+                <div><span>Original Trajectory</span><strong data-trajectory-label="original">Straight</strong></div>
+                <div><span>Edited Trajectory</span><strong data-trajectory-label="edited">Turn Left</strong></div>
+            </div>
+            <div class="rollout-player ar-rollout-player">
+                <video loop muted controls playsinline preload="none" controlslist="nodownload" aria-label="Trajectory editing video generation">
+                    <source src="video/world-simulators/traj-edit/straight_to_turn_left_compressed.mp4" type="video/mp4">
+                    你的浏览器不支持 HTML5 视频播放，请升级浏览器！
+                </video>
+            </div>
+        </div>
+
+        <div class="section-header lidar-generation-header reveal">
+            <h2>LiDAR Generation Results</h2>
+        </div>
+
+        <div class="lidar-generation-showcase reveal">
+            <div class="lidar-generation-grid">
+                <video loop muted controls playsinline preload="none" controlslist="nodownload" aria-label="LiDAR generation result 1">
+                    <source src="video/world-simulators/lidar-generation-results/飞书20260821-140741_9s_compressed.mp4" type="video/mp4">
+                    你的浏览器不支持 HTML5 视频播放，请升级浏览器！
+                </video>
+                <video loop muted controls playsinline preload="none" controlslist="nodownload" aria-label="LiDAR generation result 2">
+                    <source src="video/world-simulators/lidar-generation-results/飞书20260821-140745_9s_compressed.mp4" type="video/mp4">
+                    你的浏览器不支持 HTML5 视频播放，请升级浏览器！
+                </video>
+            </div>
+        </div>
+
+        <div class="section-header style-transfer-header reveal">
+            <h2>Weather Style Transfer Results</h2>
+        </div>
+
+        <div class="style-transfer-showcase reveal">
+            <div class="style-transfer-player">
+                <video loop muted controls playsinline preload="none" controlslist="nodownload" aria-label="Weather Style Transfer Results">
+                    <source src="video/world-simulators/style-transfer/weather-change.mp4" type="video/mp4">
+                    你的浏览器不支持 HTML5 视频播放，请升级浏览器！
+                </video>
+            </div>
+            <div class="weather-timeline" aria-label="Current weather in the style transfer video">
+                <div class="weather-progress" aria-hidden="true">
+                    <span class="weather-progress-fill"></span>
+                    <span class="weather-progress-marker"></span>
+                </div>
+                <div class="weather-stages" role="list">
+                    <button class="weather-stage is-active" type="button" role="listitem" data-weather-stage="0"><span>Original</span></button>
+                    <button class="weather-stage" type="button" role="listitem" data-weather-stage="1"><span>Snowy</span></button>
+                    <button class="weather-stage" type="button" role="listitem" data-weather-stage="2"><span>Cloudy</span></button>
+                    <button class="weather-stage" type="button" role="listitem" data-weather-stage="3"><span>Night</span></button>
+                    <button class="weather-stage" type="button" role="listitem" data-weather-stage="4"><span>Rainy</span></button>
+                    <button class="weather-stage" type="button" role="listitem" data-weather-stage="5"><span>Dusty</span></button>
+                    <button class="weather-stage" type="button" role="listitem" data-weather-stage="6"><span>Snowy</span></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="style-transfer-showcase fog-transfer-showcase reveal">
+            <div class="fog-transfer-player">
+                <video loop muted controls playsinline preload="none" controlslist="nodownload" aria-label="Original and foggy seven-view comparison">
+                    <source src="video/world-simulators/style-transfer/fog-comparison-7v-compressed.mp4" type="video/mp4">
+                    你的浏览器不支持 HTML5 视频播放，请升级浏览器！
+                </video>
+            </div>
+            <div class="fog-density-timeline">
+                <div class="fog-comparison-key" aria-label="Video comparison layout">
+                    <span><strong>Top</strong> Original</span>
+                    <span><strong>Bottom</strong> Increasing Fog</span>
+                </div>
+                <div class="fog-density-heading" aria-live="polite">
+                    <span>Fog Density</span>
+                    <strong class="fog-density-value">0%</strong>
+                </div>
+                <button class="fog-density-track" type="button" role="slider" aria-label="Seek by fog density" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Fog density 0%">
+                    <span class="fog-density-fill"></span>
+                    <span class="fog-density-marker"></span>
+                </button>
+                <div class="fog-density-scale" aria-hidden="true">
+                    <span>Clear</span>
+                    <span>Light</span>
+                    <span>Moderate</span>
+                    <span>Dense Fog</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-header animal-rollout-header reveal">
+            <h2>Animal Synthesis Results</h2>
+        </div>
+
+        <div class="animal-rollout-showcase reveal">
+            <div class="animal-rollout-layout">
+                <div class="animal-row-labels" aria-label="Animal rows">
+                    <span>Bear</span>
+                    <span>Dog</span>
+                    <span>Goose</span>
+                    <span>Sheep</span>
+                </div>
+                <div class="animal-rollout-player">
+                    <video loop muted controls playsinline preload="none" controlslist="nodownload" aria-label="Bear, dog, goose and sheep rollout results">
+                        <source src="video/world-simulators/animal-synthesis-results/animal-rollouts-comparison-compressed.mp4" type="video/mp4">
+                        你的浏览器不支持 HTML5 视频播放，请升级浏览器！
+                    </video>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="world-simulator-panel" id="gaussian-splatting-panel" role="tabpanel" aria-labelledby="gaussian-splatting-tab" hidden>
+            <div class="gaussian-splatting-placeholder">
+                <h2>3D Gaussian Splatting</h2>
+                <div class="gaussian-splatting-showcase">
+                    <div class="gaussian-splatting-tabs" role="tablist" aria-label="Choose a 3D Gaussian Splatting scene">
+                        <button class="gaussian-splatting-tab is-active" type="button" role="tab" aria-selected="true" data-video-src="video/world-simulators/3d-gaussian-splatting/685692ca60063415e66c5530_compressed.mp4">Scene 1</button>
+                        <button class="gaussian-splatting-tab" type="button" role="tab" aria-selected="false" data-video-src="video/world-simulators/3d-gaussian-splatting/694e56f0d6e0af88c4a8897a_compressed.mp4">Scene 2</button>
+                        <button class="gaussian-splatting-tab" type="button" role="tab" aria-selected="false" data-video-src="video/world-simulators/3d-gaussian-splatting/694e3ce93d7c0acaa7ef0a56_compressed.mp4">Scene 3</button>
+                        <button class="gaussian-splatting-tab" type="button" role="tab" aria-selected="false" data-video-src="video/world-simulators/3d-gaussian-splatting/694e4ac9b620c813ef400fb1_compressed.mp4">Scene 4</button>
+                    </div>
+                    <div class="gaussian-splatting-player">
+                        <video loop muted controls playsinline preload="none" controlslist="nodownload" aria-label="3D Gaussian Splatting scene video">
+                            <source src="video/world-simulators/3d-gaussian-splatting/685692ca60063415e66c5530_compressed.mp4" type="video/mp4">
+                            你的浏览器不支持 HTML5 视频播放，请升级浏览器！
+                        </video>
+                    </div>
+                </div>
+
+                <div class="section-header rollout-results-header reveal">
+                    <h2>Scene Extrapolation Results</h2>
+                </div>
+
+                <div class="scene-extrapolation-list reveal">
+                    <figure class="scene-extrapolation-item">
+                        <figcaption>Scene 1</figcaption>
+                        <div class="rollout-player">
+                            <video loop muted controls playsinline preload="none" controlslist="nodownload" aria-label="Scene extrapolation result 1">
+                                <source src="video/world-simulators/scene-extrapolation/z03_686dc9f490a0cf0cf2df1ce2_3e8c2196_full_compressed.mp4" type="video/mp4">
+                                你的浏览器不支持 HTML5 视频播放，请升级浏览器！
+                            </video>
+                        </div>
+                    </figure>
+                    <figure class="scene-extrapolation-item">
+                        <figcaption>Scene 2</figcaption>
+                        <div class="rollout-player">
+                            <video loop muted controls playsinline preload="none" controlslist="nodownload" aria-label="Scene extrapolation result 2">
+                                <source src="video/world-simulators/scene-extrapolation/z03_686ea985e8a2a1a730677be5_da65d327_full_compressed.mp4" type="video/mp4">
+                                你的浏览器不支持 HTML5 视频播放，请升级浏览器！
+                            </video>
+                        </div>
+                    </figure>
+                    <figure class="scene-extrapolation-item">
+                        <figcaption>Scene 3</figcaption>
+                        <div class="rollout-player">
+                            <video loop muted controls playsinline preload="none" controlslist="nodownload" aria-label="Scene extrapolation result 3">
+                                <source src="video/world-simulators/scene-extrapolation/z04_68663054f20e2317ec41bc40_4eba8394_full_compressed.mp4" type="video/mp4">
+                                你的浏览器不支持 HTML5 视频播放，请升级浏览器！
+                            </video>
+                        </div>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

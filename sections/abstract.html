@@ -1,0 +1,11 @@
+<!-- Abstract -->
+    <section class="intro abstract-section" id="intro">
+        <div class="container abstract-container">
+            <article class="abstract-card reveal">
+                <h2>Abstract</h2>
+                <p>
+                    Modern driving action models are increasingly improved in a self-improvement loop, where a learned world simulator imagines future observations and the resulting data is fed back to refine the action model. However, the bottleneck of this loop lies in the simulators' inability to generate behaviorally plausible responses by surrounding agents, making generated data both unrealistic in interaction and imbalanced in distribution. We introduce BehaviorWorldGen, a framework that closes the loop between action models and world simulators through controllable behavior-aware structured world generation. Its core component is BehaviorFlow, a meta-action-conditioned traffic-flow model that injects interpretable behavior controls and jointly generates multi-agent rollouts. <strong>BehaviorFlow realizes the specified agent behaviors while allowing surrounding vehicles to respond to the ego and to one another.</strong> The resulting rollouts are rendered by a world simulator into realistic multi-view observations, which are paired with corrected interaction-aware trajectories for action-model refinement. Since BehaviorWorldGen uses structured trajectories as the interface between its modules, it is compatible with diverse action models and world simulators. Experiments on world generation, scene extrapolation, and policy refinement demonstrate consistent improvements, with the largest benefits concentrated on difficult interactive scenarios.
+                </p>
+            </article>
+        </div>
+    </section>
