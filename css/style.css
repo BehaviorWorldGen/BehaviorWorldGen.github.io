@@ -11,6 +11,12 @@
             --accent: #db0052;
             --accent-light: #fd025c;
             --accent-subtle: rgba(219, 0, 82, 0.09);
+            /* Author roster color coding */
+            --aff-1: #db0052;      /* AFARI, Qianli Technology — brand red */
+            --aff-2: #0052db;      /* MEGVII — blue */
+            --role-eq: #8305a6;    /* * Equal contribution — theme purple */
+            --role-lead: #0d9488;  /* ‡ Project lead — teal */
+            --role-corr: #d97706;  /* † Corresponding author — amber */
             --gradient-accent: linear-gradient(135deg, #db0052 0%, #8305a6 55%, #0052db 100%);
             --gradient-glow: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(219, 0, 82, 0.07), transparent 42%);
             --border-subtle: rgba(0, 0, 0, 0.09);
@@ -253,6 +259,154 @@
             background: var(--accent-light);
             border-color: var(--accent-light);
             transform: translateY(-2px);
+        }
+
+        /* ===== Authors & Affiliations ===== */
+        /* The "AFARI World Model Team" badge doubles as the expand/collapse toggle. */
+        button.hero-badge {
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+        }
+
+        button.hero-badge:hover {
+            color: var(--text-primary);
+            border-color: var(--border-light);
+        }
+
+        .authors-chevron {
+            margin-left: 2px;
+            transition: transform 0.35s var(--ease-out-expo);
+        }
+
+        .authors-toggle[aria-expanded="true"] .authors-chevron {
+            transform: rotate(180deg);
+        }
+
+        .authors-panel {
+            display: grid;
+            grid-template-rows: 1fr;
+            opacity: 1;
+            transition: grid-template-rows 0.45s var(--ease-out-expo), opacity 0.3s ease;
+        }
+
+        .authors-panel.is-collapsed {
+            grid-template-rows: 0fr;
+            opacity: 0;
+        }
+
+        .authors-panel-inner {
+            overflow: hidden;
+            min-height: 0;
+            padding-top: 28px;
+        }
+
+        .author-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px 16px;
+            max-width: 980px;
+            margin: 0 auto;
+            line-height: 1.3;
+        }
+
+        .author {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            white-space: nowrap;
+            letter-spacing: 0.005em;
+        }
+
+        .author sup {
+            font-size: 0.72em;
+            font-weight: 500;
+            color: var(--text-secondary);
+            vertical-align: super;
+            margin-left: 2px;
+            letter-spacing: 0.05em;
+        }
+
+        .author sup .role {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Color-coded affiliation numbers & role markers (author list + legends) */
+        #authors-panel .a1 { color: var(--aff-1); }
+        #authors-panel .a2 { color: var(--aff-2); }
+        #authors-panel .sep { color: var(--text-tertiary); font-weight: 400; }
+        #authors-panel .r-eq { color: var(--role-eq); font-weight: 700; }
+        #authors-panel .r-lead { color: var(--role-lead); font-weight: 700; }
+        #authors-panel .r-corr { color: var(--role-corr); font-weight: 700; }
+
+        .affiliation-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px 26px;
+            max-width: 760px;
+            margin: 22px auto 0;
+            line-height: 1.5;
+        }
+
+        .affiliation {
+            font-size: 14px;
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+
+        .affiliation sup {
+            font-size: 0.72em;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-right: 3px;
+            vertical-align: super;
+        }
+
+        .author-notes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px 26px;
+            margin: 13px auto 0;
+        }
+
+        .author-note {
+            font-size: 12.5px;
+            color: var(--text-secondary);
+            white-space: nowrap;
+            letter-spacing: 0.01em;
+        }
+
+        .author-note sup {
+            font-size: 1em;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-right: 4px;
+            vertical-align: super;
+        }
+
+        @media (max-width: 640px) {
+            .author {
+                font-size: 15px;
+            }
+
+            .affiliation {
+                font-size: 13px;
+            }
+
+            .author-list {
+                gap: 6px 16px;
+            }
+
+            .affiliation-list,
+            .author-notes {
+                gap: 5px 14px;
+            }
         }
 
        

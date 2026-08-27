@@ -5,10 +5,14 @@
             <p class="subtitle">交互式驾驶世界模型</p>
             <p class="tagline">通过可控、行为感知的结构化世界生成，闭环连接驾驶动作模型与世界模拟器。</p>
             <div class="hero-team">
-                <div class="hero-badge">
+                <button type="button" class="hero-badge authors-toggle" aria-expanded="false" aria-controls="authors-panel">
                     <img src="img/shared/afari-team-logo.png" alt="" class="team-logo">
                     AFARI World Model Team
-                </div>
+                    <svg class="authors-chevron" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
+                <div data-include="sections/authors.html"></div>
             </div>
             <div class="hero-cta">
                 <a href="https://arxiv.org/abs/2608.22187" class="btn" target="_blank" rel="noopener noreferrer">

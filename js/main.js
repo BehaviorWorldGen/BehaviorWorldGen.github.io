@@ -1,17 +1,23 @@
 // Section loader for local Live Server / GitHub Pages
 async function loadSections() {
-    const slots = document.querySelectorAll('[data-include]');
+    // Resolve includes repeatedly so nested data-include slots
+    // (e.g. authors.html embedded inside the hero) are also loaded.
+    let slots = document.querySelectorAll('[data-include]');
 
-    await Promise.all(Array.from(slots).map(async (slot) => {
-        const file = slot.getAttribute('data-include');
-        const response = await fetch(file);
+    while (slots.length) {
+        await Promise.all(Array.from(slots).map(async (slot) => {
+            const file = slot.getAttribute('data-include');
+            const response = await fetch(file, { cache: 'no-store' });
 
-        if (!response.ok) {
-            throw new Error(`Failed to load section: ${file}`);
-        }
+            if (!response.ok) {
+                throw new Error(`Failed to load section: ${file}`);
+            }
 
-        slot.outerHTML = await response.text();
-    }));
+            slot.outerHTML = await response.text();
+        }));
+
+        slots = document.querySelectorAll('[data-include]');
+    }
 }
 
 function initPageInteractions() {
@@ -29,6 +35,17 @@ function initPageInteractions() {
     
             document.querySelectorAll('.reveal').forEach(el => {
                 revealObserver.observe(el);
+            });
+
+            // Authors & Affiliations collapse toggle
+            document.querySelectorAll('.authors-toggle').forEach(toggle => {
+                const panel = document.getElementById(toggle.getAttribute('aria-controls'));
+
+                toggle.addEventListener('click', () => {
+                    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+                    toggle.setAttribute('aria-expanded', String(!expanded));
+                    if (panel) panel.classList.toggle('is-collapsed', expanded);
+                });
             });
     
             // Custom Video Player — play/pause only, no fullscreen, no download
