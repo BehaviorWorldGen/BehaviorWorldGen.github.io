@@ -47,6 +47,40 @@ function initPageInteractions() {
                     if (panel) panel.classList.toggle('is-collapsed', expanded);
                 });
             });
+
+            // Film preview modal
+            const filmModal = document.getElementById('film-preview-modal');
+            const filmTrigger = document.querySelector('.film-preview-trigger');
+            const filmVideo = filmModal?.querySelector('video');
+            const filmCloseButton = filmModal?.querySelector('.film-modal-close');
+
+            function openFilmModal() {
+                if (!filmModal || !filmVideo) return;
+                filmModal.hidden = false;
+                document.body.classList.add('film-modal-open');
+                filmCloseButton?.focus();
+                filmVideo.currentTime = 0;
+                filmVideo.play().catch(() => {
+                    // Native controls remain available if autoplay is blocked.
+                });
+            }
+
+            function closeFilmModal() {
+                if (!filmModal || filmModal.hidden) return;
+                filmVideo?.pause();
+                if (filmVideo) filmVideo.currentTime = 0;
+                filmModal.hidden = true;
+                document.body.classList.remove('film-modal-open');
+                filmTrigger?.focus();
+            }
+
+            filmTrigger?.addEventListener('click', openFilmModal);
+            filmModal?.querySelectorAll('[data-film-close]').forEach(control => {
+                control.addEventListener('click', closeFilmModal);
+            });
+            document.addEventListener('keydown', event => {
+                if (event.key === 'Escape' && filmModal && !filmModal.hidden) closeFilmModal();
+            });
     
             // Custom Video Player — play/pause only, no fullscreen, no download
             document.querySelectorAll('.video-wrapper').forEach(wrapper => {

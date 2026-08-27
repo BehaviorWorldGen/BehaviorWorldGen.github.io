@@ -235,6 +235,9 @@
 
         .hero-cta {
             margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
             opacity: 0;
             transform: translateY(30px);
             animation: heroFadeIn 0.9s var(--ease-out-expo) 0.65s forwards;
@@ -253,12 +256,87 @@
             font-weight: 500;
             text-decoration: none;
             transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+            cursor: pointer;
+            font-family: inherit;
         }
 
         .hero-cta .btn:hover {
             background: var(--accent-light);
             border-color: var(--accent-light);
             transform: translateY(-2px);
+        }
+
+        /* ===== Film Preview Modal ===== */
+        body.film-modal-open {
+            overflow: hidden;
+        }
+
+        .film-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            display: grid;
+            place-items: center;
+            padding: 28px;
+        }
+
+        .film-modal[hidden] {
+            display: none;
+        }
+
+        .film-modal-backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.82);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .film-modal-content {
+            position: relative;
+            width: min(1200px, 92vw);
+            max-height: 88vh;
+            z-index: 1;
+            background: #000;
+            border-radius: 10px;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+            overflow: visible;
+        }
+
+        .film-modal video {
+            display: block;
+            width: 100%;
+            max-height: 88vh;
+            border-radius: 10px;
+            background: #000;
+        }
+
+        .film-modal-close {
+            position: absolute;
+            top: -18px;
+            right: -18px;
+            z-index: 2;
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            color: #fff;
+            background: rgba(20, 20, 20, 0.9);
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .film-modal-close:hover {
+            background: var(--accent);
+            transform: scale(1.06);
+        }
+
+        .film-modal-close:focus-visible,
+        .film-preview-trigger:focus-visible {
+            outline: 3px solid rgba(253, 2, 92, 0.4);
+            outline-offset: 3px;
         }
 
         /* ===== Authors & Affiliations ===== */
