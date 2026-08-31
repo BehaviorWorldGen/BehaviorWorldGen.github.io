@@ -7,7 +7,8 @@ async function loadSections() {
     while (slots.length) {
         await Promise.all(Array.from(slots).map(async (slot) => {
             const file = slot.getAttribute('data-include');
-            const response = await fetch(file, { cache: 'no-store' });
+            const separator = file.includes('?') ? '&' : '?';
+            const response = await fetch(`${file}${separator}v=film-preview-1`, { cache: 'no-store' });
 
             if (!response.ok) {
                 throw new Error(`Failed to load section: ${file}`);
