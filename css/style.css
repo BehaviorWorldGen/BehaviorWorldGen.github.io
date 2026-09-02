@@ -274,6 +274,7 @@
         .hero-cta .report-link .arxiv-icon {
             width: 25px;
             height: 25px;
+            object-fit: contain;
         }
 
         .hero-cta .btn:hover {
